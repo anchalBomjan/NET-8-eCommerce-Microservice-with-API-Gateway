@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eCommerce.SharedLibrary.Response
 {
-    internal class Response
+    public record class Response(bool Flag=false,string Message=null!)
     {
     }
 }
