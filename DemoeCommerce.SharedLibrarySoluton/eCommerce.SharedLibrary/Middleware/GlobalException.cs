@@ -66,7 +66,7 @@ namespace eCommerce.SharedLibrary.Middleware
             await context.Response.WriteAsync(JsonSerializer.Serialize(new ProblemDetails()
             {
                 Detail= message,
-                Status=statusCode,
+                Status=statusCode, 
                 Title =title,
 
             }), CancellationToken.None);
