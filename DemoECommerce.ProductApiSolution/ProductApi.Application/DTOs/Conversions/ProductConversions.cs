@@ -28,7 +28,7 @@ namespace ProductApi.Application.DTOs.Conversions
             {
                 var singleProduct = new ProductDTO
                     (product!.Id,
-                    product.Name,
+                    product.Name!,
                     product.Quantity,
                     product.Price
                     );

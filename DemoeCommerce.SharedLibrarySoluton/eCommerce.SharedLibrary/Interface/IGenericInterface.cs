@@ -9,8 +9,9 @@ namespace eCommerce.SharedLibrary.Interface
         Task<Resp.Response> CreateAsync(T entity);
         Task<Resp.Response> UpdateAsync(T entity);
         Task<Resp.Response> DeleteAsync(T entity);
-        Task<IEnumerable<Resp.Response>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync();
         Task<T> FindByIdAsync(int id);
-        Task<T> GetByAsync(Expression<Func<T, bool>> prediction);
+        Task<T> GetByAsync(Expression<Func<T, bool>> predicate);
+
     }
 }
