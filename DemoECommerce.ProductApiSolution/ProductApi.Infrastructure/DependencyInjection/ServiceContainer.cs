@@ -5,12 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using ProductApi.Application.Interfaces;
 using ProductApi.Infrastructure.Data;
 using ProductApi.Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ProductApi.Infrastructure.DependencyInjection
 {
     public static  class ServiceContainer

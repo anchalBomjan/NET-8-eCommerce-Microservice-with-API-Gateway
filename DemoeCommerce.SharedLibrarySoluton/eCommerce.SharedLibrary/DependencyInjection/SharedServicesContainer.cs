@@ -5,8 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Events;
-
-
 namespace eCommerce.SharedLibrary.DependencyInjection
 {
     public   static class SharedServicesContainer
@@ -41,10 +39,6 @@ namespace eCommerce.SharedLibrary.DependencyInjection
             //Add JWT Authentication Scheme
             JWTAuthenticationScheme.AddJWTAuthenticationScheme(services, config);
 
-
-
-
-
              return services;
         }
           
@@ -54,7 +48,7 @@ namespace eCommerce.SharedLibrary.DependencyInjection
             app.UseMiddleware<GlobalException>();
             //Refister middleware to block  all the outsiders API Calls
 
-            //app.UseMiddleware<ListenToOnlyApiGateway>();
+           // app.UseMiddleware<ListenToOnlyApiGateway>();
             return app;
         }
     }
