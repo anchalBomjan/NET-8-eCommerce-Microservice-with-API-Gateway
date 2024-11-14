@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderApi.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderApi.Presentation", "OrderApi.Presentation\OrderApi.Presentation.csproj", "{D780F5A6-A500-4EAF-8098-146A2B055BB0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerce.SharedLibrary", "..\DemoeCommerce.SharedLibrarySoluton\eCommerce.SharedLibrary\eCommerce.SharedLibrary.csproj", "{C562D662-8763-40C2-B826-054D080E360F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D780F5A6-A500-4EAF-8098-146A2B055BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D780F5A6-A500-4EAF-8098-146A2B055BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D780F5A6-A500-4EAF-8098-146A2B055BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C562D662-8763-40C2-B826-054D080E360F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C562D662-8763-40C2-B826-054D080E360F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C562D662-8763-40C2-B826-054D080E360F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C562D662-8763-40C2-B826-054D080E360F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
