@@ -24,7 +24,7 @@ namespace ProductApi.Application.DTOs.Conversions
         public static (ProductDTO?,IEnumerable<ProductDTO>?) FromEntity(Product product ,IEnumerable<Product>? products)
         {
             //return single
-            if(product is null || products is null)
+            if(product is not null || products is null)
             {
                 var singleProduct = new ProductDTO
                     (product!.Id,
