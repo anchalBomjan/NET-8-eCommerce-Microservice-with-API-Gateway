@@ -23,7 +23,7 @@ namespace OrderApi.Application.DependencyInjection
             } );
 
             //Create Retry Strategy
-            var retryStratrgy = new RetryStrategyOptions()
+            var retryStrategy = new RetryStrategyOptions()
             {
                 ShouldHandle = new PredicateBuilder().Handle<TaskCanceledException>(),
                 BackoffType = DelayBackoffType.Constant,
@@ -41,7 +41,7 @@ namespace OrderApi.Application.DependencyInjection
             //User Retry strategy
             services.AddResiliencePipeline("my-retry-pipeline", builder =>
             {
-                builder.AddRetry(retryStratrgy);
+                builder.AddRetry(retryStrategy);
             });
             return services;
         }

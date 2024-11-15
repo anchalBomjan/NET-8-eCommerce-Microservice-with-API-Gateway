@@ -40,9 +40,19 @@ namespace OrderApi.Presentation.Controllers
         public async Task<ActionResult<OrderDTO>> GetClientOrders(int clienId)
         {
             if (clienId <= 0) return BadRequest("Invalid data provided");
-            var orders = await orderInterface.GetOrdersAsync(o=>o.ClientId == clienId);
+            //var orders = await orderInterface.GetOrdersAsync(o=>o.ClientId == clienId);
+            var orders = await orderService.GetOrdersByClientId(clienId);
             return !orders.Any() ? NotFound(null) : Ok(orders);
         }
+
+        [HttpGet("details/{orderId:int}")]
+        public async Task<ActionResult<OrderDetailsDTO>> GetOrderDetails(int orderId)
+        {
+            if (orderId <= 0) return BadRequest("Invalid data provided");
+            var orderDetail = await orderService.GetOrderDetails(orderId);
+            return orderDetail.OrderId > 0 ? Ok(orderDetail) : NotFound("No Order Found");
+        }
+
 
         [HttpPost]
         public async Task<ActionResult<Response>>CreateOrder(OrderDTO orderDTO)
