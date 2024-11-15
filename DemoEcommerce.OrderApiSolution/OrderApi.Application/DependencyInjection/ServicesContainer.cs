@@ -1,7 +1,6 @@
 ﻿using eCommerce.SharedLibrary.Logs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OrderApi.Application.Interfaces;
 using OrderApi.Application.Services;
 using Polly;
 using Polly.Retry;
