@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DemoeCommerce.SharedLibrarySoluton\eCommerce.SharedLibrary\eCommerce.SharedLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
