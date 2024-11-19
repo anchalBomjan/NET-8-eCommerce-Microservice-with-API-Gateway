@@ -17,7 +17,8 @@ namespace OrderApi.Application.DependencyInjection
 
             services.AddHttpClient<IOrderService, OrderService>(options =>
             {
-                options.BaseAddress = new Uri(config["ApiGateway:BaseAddress"]!);
+               options.BaseAddress = new Uri(config["ApiGateway:BaseAddress"]!);
+             
                 options.Timeout = TimeSpan.FromSeconds(1);
 
             } );

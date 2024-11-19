@@ -28,7 +28,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
         {
             var user = await context.Users.FindAsync(userId);
             return user is not null ? new GetUserDTO(user.Id,
-                user.Name !,
+                user.Name!,
                 user.TelePhoneNumber!,
                 user.Address!,
                 user.Email!,
@@ -40,12 +40,17 @@ namespace AuthenticationApi.Infrastructure.Repositories
             var getUser= await GetUserByEmail(loginDTO.Email);
             if (getUser is null)
                 return new Response(false, $"Invalid Credentials");
+            // bool verifyPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.Password);
+            //if (!verifyPassword)
+            //    return new Response(false, $"Invalid Credentials");
+            //string token = GenerateToken(getUser);
+            //return new Response(true, token);
+
             bool verifyPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.Password);
             if (!verifyPassword)
-                return new Response(false, $"Invalid Credentials");
+                return new Response(false, $"Invalide Credentials");
             string token = GenerateToken(getUser);
             return new Response(true, token);
-
 
         }
 
@@ -56,15 +61,15 @@ namespace AuthenticationApi.Infrastructure.Repositories
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Name!),
-                new Claim(ClaimTypes.Email,user.Email!)
+                new (ClaimTypes.Name, user.Name!),
+                new (ClaimTypes.Email,user.Email!)
 
             };
             if (!string.IsNullOrEmpty(user.Role) || !Equals("string", user.Role))
                 claims.Add(new(ClaimTypes.Role, user.Role!));
 
             var token = new JwtSecurityToken(
-                issuer: config["Authrntication:Issuer"],
+                issuer: config["Authentication:Issuer"],
                 audience: config["Authentication:Audience"],
                 claims: claims,
                 expires: null,
@@ -78,8 +83,8 @@ namespace AuthenticationApi.Infrastructure.Repositories
         public async Task<Response> Register(AppUserDTO appUserDTO)
         {
 
-            var getUser =  await context.Users.FindAsync(appUserDTO.Email);
-            if (getUser is null)
+            var getUser =  await GetUserByEmail(appUserDTO.Email);
+            if (getUser is  not null)
                 return new Response(false, $" you cannot Registered from this Email");
         
 
@@ -87,7 +92,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
             {
                 Name = appUserDTO.Name,
                 Email = appUserDTO.Email,
-                Password = appUserDTO.Password,
+                Password =BCrypt.Net.BCrypt.HashPassword(appUserDTO.Password),
                 TelePhoneNumber = appUserDTO.TelePhoneNumber,
                 Address = appUserDTO.Address,
                 Role = appUserDTO.Role
