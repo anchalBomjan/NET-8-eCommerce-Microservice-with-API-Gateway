@@ -12,10 +12,6 @@ namespace AuthenticationApi.Application.DTOs
         [Required,EmailAddress] string Email,
         [Required] string Password,
         [Required] string Role
-
-        
-        
-        
         );
    
 }
