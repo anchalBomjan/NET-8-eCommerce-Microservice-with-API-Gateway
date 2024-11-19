@@ -4,8 +4,6 @@ using OrderApi.Application.DTOs.Conversions;
 using OrderApi.Application.Interfaces;
 using Polly.Registry;
 using System.Net.Http.Json;
-using System.Reflection.Metadata.Ecma335;
-
 namespace OrderApi.Application.Services
 {
     public class OrderService (IOrder orderInterface ,HttpClient httpClient,
@@ -36,7 +34,8 @@ namespace OrderApi.Application.Services
             // Call Product API using HttpClient
             //Redirect this call to the API Gateway since product API is not response to the outsiders.
 
-            var getUser = await httpClient.GetAsync($"/api/products/{userId}");
+           var getUser = await httpClient.GetAsync($"/api/products/{userId}");
+           // var getUser = await httpClient.GetAsync($"http://localhost:5000/api/Authentication/{userId}");
             if (!getUser.IsSuccessStatusCode)
                 return null!;
 
