@@ -3,16 +3,6 @@ namespace OrderApi.Application.DTOs.Conversions
 {
     public static class OrderConversion
     {
-        //public static Order ToEntity(OrderDTO order) => new()
-        //{
-        //    Id=order.Id,
-        //    ClientId=order.ClientId,
-        //    ProductId=order.ProductId,
-        //    OrderedData=order.OrderedDate,
-        //    PurchaseQuantity=order.PurchaseQuantity,
-
-
-        //};
 
         public static Order ToEntity(OrderDTO order) => new()
         {
@@ -62,43 +52,3 @@ namespace OrderApi.Application.DTOs.Conversions
     }
 }
 
-
-
-//using OrderApi.Domain.Entities;
-
-//namespace OrderApi.Application.DTOs.Conversions;
-
-//public static class OrderConversion
-//{
-//    public static Order ToEntity(this OrderDTO orderDTO) => new Order
-//    {
-//        Id = orderDTO.Id,
-//        ClientId = orderDTO.ClientId,
-//        ProductId = orderDTO.ProductId,
-//        OrderedData = orderDTO.OrderedDate,
-//        PurchaseQuantity = orderDTO.PurchaseQuantity
-//    };
-
-//    public static OrderDTO? FromEntity(this Order? order)
-//    {
-//        if (order is null) return null;
-//        return new OrderDTO(
-//            order!.Id,
-//            order.ClientId,
-//            order.ProductId,
-//            order.PurchaseQuantity,
-//            order.OrderedData);
-//    }
-
-//    public static IEnumerable<OrderDTO>? FromEntity(this IEnumerable<Order>? orders)
-//    {
-//        if (orders is null) return null;
-//        return orders!.Select(o => new OrderDTO(
-//                o!.Id,
-//                o.ClientId,
-//                o.ProductId,
-//                o.PurchaseQuantity,
-//                o.OrderedData)
-//        ).ToList();
-//    }
-//}

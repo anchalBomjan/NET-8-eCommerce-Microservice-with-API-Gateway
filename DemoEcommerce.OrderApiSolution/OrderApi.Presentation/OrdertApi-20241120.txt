@@ -10,3 +10,4 @@
 2024-11-20 10:19:31.801 +05:45 [WRN] OnRetry, Attempt:0 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
 2024-11-20 10:19:33.730 +05:45 [WRN] OnRetry, Attempt:1 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
 2024-11-20 10:19:35.489 +05:45 [WRN] OnRetry, Attempt:2 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2024-11-20 14:04:55.914 +05:45 [WRN] OnRetry, Attempt:0 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
