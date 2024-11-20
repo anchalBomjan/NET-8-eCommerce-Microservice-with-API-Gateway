@@ -7,7 +7,7 @@ namespace OrderApi.Application.DTOs
     (
         [Required] int OrderId,
         [Required] int ProductId,
-        [Required] int Client,
+        [Required] int ClientId,
         [Required] string Name,
         [Required, EmailAddress] string Email,
          [Required, EmailAddress] string Address,
