@@ -78,8 +78,6 @@ namespace OrderApi.Application.Services
                 );
            
         }
-
-
         //Get Orders By Client ID
         public async Task<IEnumerable<OrderDTO>> GetOrdersByClientId(int ClientId)
         {
