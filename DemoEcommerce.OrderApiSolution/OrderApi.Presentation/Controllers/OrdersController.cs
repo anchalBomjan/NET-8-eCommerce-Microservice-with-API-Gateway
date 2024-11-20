@@ -1,7 +1,5 @@
 ﻿using eCommerce.SharedLibrary.Response;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using OrderApi.Application.DTOs;
 using OrderApi.Application.DTOs.Conversions;
 using OrderApi.Application.Interfaces;
