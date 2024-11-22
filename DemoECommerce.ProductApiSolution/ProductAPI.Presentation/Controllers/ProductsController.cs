@@ -1,4 +1,5 @@
 ﻿using eCommerce.SharedLibrary.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ namespace ProductAPI.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class ProductsController (IProduct productInterface): ControllerBase
     {
 
@@ -48,12 +50,12 @@ namespace ProductAPI.Presentation.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult<Response>> CreateProduct(ProductDTO product)
         {
             //Check model state is all data annotations are passed
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
             //Convert to entity
             var getEntity = ProductConversions.ToEntity(product);
             var response = await productInterface.CreateAsync(getEntity);
@@ -64,7 +66,7 @@ namespace ProductAPI.Presentation.Controllers
 
 
         [HttpPut]
-
+        [Authorize(Roles ="Admin")]
         public async  Task<ActionResult<Response>> UpdateProduct(ProductDTO product)
         {
             //Check the model  state is  all the data annotation are passed
@@ -79,6 +81,7 @@ namespace ProductAPI.Presentation.Controllers
 
         }
         [HttpDelete]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult<Response>> DeleteProduct(ProductDTO product)
         {
             // convert to entity

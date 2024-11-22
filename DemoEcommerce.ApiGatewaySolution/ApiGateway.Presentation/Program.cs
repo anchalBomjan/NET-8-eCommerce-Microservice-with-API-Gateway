@@ -20,6 +20,8 @@ builder.Services.AddCors(options =>
     });
 
 });
+// Explicitly set the application to listen on port 5003
+builder.WebHost.UseUrls("https://localhost:5003");
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseCors();

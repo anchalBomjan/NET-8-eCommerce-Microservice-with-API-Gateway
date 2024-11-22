@@ -46,9 +46,9 @@ namespace eCommerce.SharedLibrary.DependencyInjection
         {
             //Use global Exception
             app.UseMiddleware<GlobalException>();
-            //Refister middleware to block  all the outsiders API Calls
+            //Register middleware to block  all the outsiders API Calls
 
-           // app.UseMiddleware<ListenToOnlyApiGateway>();
+            app.UseMiddleware<ListenToOnlyApiGateway>();
             return app;
         }
     }

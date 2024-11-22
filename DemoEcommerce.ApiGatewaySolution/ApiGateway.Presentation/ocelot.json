@@ -1,7 +1,6 @@
 {
   "Routes": [
-
-    //JWT Authentication
+    // JWT Authentication
     {
       "DownstreamPathTemplate": "/api/authentication/{everything}",
       "DownstreamScheme": "http",
@@ -11,18 +10,17 @@
           "Port": 5000
         }
       ],
-      "UpstreamPathTemplate": "api/authentication/{everythings}",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamPathTemplate": "/api/authentication/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ],
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
         "Period": "60s",
-        "Limit": 1,
-        "PeriodTimespan": 10
+        "Limit": 10,
+        "PeriodTimespan": 60
       }
     },
-    //Product  API
-    //Get Methods
+    // Product API
     {
       "DownstreamPathTemplate": "/api/products",
       "DownstreamScheme": "http",
@@ -32,7 +30,7 @@
           "Port": 5001
         }
       ],
-      "UpstreamPathTemplate": "api/products",
+      "UpstreamPathTemplate": "/api/products",
       "UpstreamHttpMethod": [ "GET" ],
       "FileCacheOptions": {
         "TtlSeconds": 60,
@@ -40,8 +38,6 @@
         "Header": "eCommerce-Caching-Control"
       }
     },
-    //Get ProductByID
-
     {
       "DownstreamPathTemplate": "/api/products/{id}",
       "DownstreamScheme": "http",
@@ -51,7 +47,7 @@
           "Port": 5001
         }
       ],
-      "UpstreamPathTemplate": "api/products/{id}",
+      "UpstreamPathTemplate": "/api/products/{id}",
       "UpstreamHttpMethod": [ "GET" ],
       "FileCacheOptions": {
         "TtlSeconds": 60,
@@ -59,8 +55,6 @@
         "Header": "eCommerce-Caching-Control"
       }
     },
-
-    // Product => Post ,Put ,Delete-> all
     {
       "DownstreamPathTemplate": "/api/products/{everything}",
       "DownstreamScheme": "http",
@@ -70,16 +64,14 @@
           "Port": 5001
         }
       ],
-      "UpstreamPathTemplate": "api/products/{everythings}",
+      "UpstreamPathTemplate": "/api/products/{everything}",
       "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
-
     },
-    //Order Api
-    //Get
+    // Order API
     {
       "DownstreamPathTemplate": "/api/orders",
       "DownstreamScheme": "http",
@@ -89,7 +81,7 @@
           "Port": 5002
         }
       ],
-      "UpstreamPathTemplate": "api/orders",
+      "UpstreamPathTemplate": "/api/orders",
       "UpstreamHttpMethod": [ "GET" ],
       "FileCacheOptions": {
         "TtlSeconds": 60,
@@ -101,8 +93,6 @@
         "AllowedScopes": []
       }
     },
-    //Get  order By ID
-
     {
       "DownstreamPathTemplate": "/api/orders/{id}",
       "DownstreamScheme": "http",
@@ -112,7 +102,7 @@
           "Port": 5002
         }
       ],
-      "UpstreamPathTemplate": "api/orders/{id}",
+      "UpstreamPathTemplate": "/api/orders/{id}",
       "UpstreamHttpMethod": [ "GET" ],
       "FileCacheOptions": {
         "TtlSeconds": 60,
@@ -124,7 +114,6 @@
         "AllowedScopes": []
       }
     },
-    // Product => Post ,Put ,Delete-> all
     {
       "DownstreamPathTemplate": "/api/orders/{everything}",
       "DownstreamScheme": "http",
@@ -134,7 +123,7 @@
           "Port": 5002
         }
       ],
-      "UpstreamPathTemplate": "api/orders/{everythings}",
+      "UpstreamPathTemplate": "/api/orders/{everything}",
       "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -145,8 +134,7 @@
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:5003",
     "RateLimitOptions": {
-
-      "QuotaExceededMessage": "You are overwhelming me  with multiple requests. Relax small"
+      "QuotaExceededMessage": "You are overwhelming me with multiple requests. Relax a little!"
     }
   }
 }
