@@ -2,21 +2,18 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace eCommerce.SharedLibrary.DependencyInjection
 {
-    public  static class JWTAuthenticationScheme
+    public static class JWTAuthenticationScheme
     {
-        public  static IServiceCollection  AddJWTAuthenticationScheme(this IServiceCollection services,IConfiguration config)
+        public static IServiceCollection AddJWTAuthenticationScheme(this IServiceCollection services, IConfiguration config)
         {
             // AddJWT Services
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer("Bearer", options =>
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
                     var key = Encoding.UTF8.GetBytes(config.GetSection("Authentication:Key").Value!);
                     string issuer = config.GetSection("Authentication:Issuer").Value!;
@@ -41,3 +38,42 @@ namespace eCommerce.SharedLibrary.DependencyInjection
     }
 
 }
+
+//using Microsoft.AspNetCore.Authentication.JwtBearer;
+//using Microsoft.Extensions.Configuration;
+//using Microsoft.Extensions.DependencyInjection;
+//using Microsoft.IdentityModel.Tokens;
+//using System.Text;
+
+//namespace eCommerce.SharedLibrary.DependencyInjection
+//{
+//    public static class JWTAuthenticationScheme
+//    {
+//        public static IServiceCollection AddJWTAuthenticationScheme(this IServiceCollection services, IConfiguration config)
+//        {
+//            // Add JWT Services
+//            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+//                {
+//                    var key = Encoding.UTF8.GetBytes(config["Authentication:Key"]!);
+//                    string issuer = config["Authentication:Issuer"]!;
+//                    string audience = config["Authentication:Audience"]!;
+
+//                    options.RequireHttpsMetadata = false;
+//                    options.TokenValidationParameters = new TokenValidationParameters
+//                    {
+//                        ValidateIssuer = true,
+//                        ValidateAudience = true,
+//                        ValidateLifetime = true, // Enable lifetime validation
+//                        ValidateIssuerSigningKey = true,
+//                        ValidIssuer = issuer,
+//                        ValidAudience = audience,
+//                        IssuerSigningKey = new SymmetricSecurityKey(key)
+//                    };
+//                });
+
+//            return services;
+//        }
+//    }
+//}
+

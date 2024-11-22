@@ -1,7 +1,5 @@
 ﻿
-
 using Serilog;
-
 namespace eCommerce.SharedLibrary.Logs
 {
     public  static class LogException
