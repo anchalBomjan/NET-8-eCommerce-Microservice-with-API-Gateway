@@ -27,7 +27,7 @@ namespace OrderApi.Infrastructure.DependencyInjection
             //Globalexcepstion -> handle external errors
             // ListenTo APIGateway  only -> block all outersiders calls
 
-            SharedServicesContainer.UserSharedPolices(app);
+           // SharedServicesContainer.UserSharedPolices(app);
             return app;
 
         }

@@ -9,9 +9,11 @@ namespace OrderApi.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    
+      
     public class OrdersController(IOrder orderInterface ,IOrderService orderService): ControllerBase
     {
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrderDTO>>> GetOrders()
         {

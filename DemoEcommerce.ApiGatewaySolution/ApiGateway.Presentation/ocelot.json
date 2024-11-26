@@ -11,7 +11,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/authentication/{everything}",
-      "UpstreamHttpMethod": [ "POST", "GET" ],
+      "UpstreamHttpMethod": [ "GET", "POST" ],
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
@@ -38,6 +38,9 @@
         "Header": "eCommerce-Caching-Control"
       }
     },
+
+
+    //get product by Id
     {
       "DownstreamPathTemplate": "/api/products/{id}",
       "DownstreamScheme": "http",
@@ -55,6 +58,8 @@
         "Header": "eCommerce-Caching-Control"
       }
     },
+
+    // Product => Post,Put,Delet -> all
     {
       "DownstreamPathTemplate": "/api/products/{everything}",
       "DownstreamScheme": "http",
@@ -93,6 +98,8 @@
         "AllowedScopes": []
       }
     },
+
+     // Get  By Id Orders
     {
       "DownstreamPathTemplate": "/api/orders/{id}",
       "DownstreamScheme": "http",
@@ -114,6 +121,8 @@
         "AllowedScopes": []
       }
     },
+
+    // Orders => Post ,Put and  Delete -> ALl
     {
       "DownstreamPathTemplate": "/api/orders/{everything}",
       "DownstreamScheme": "http",

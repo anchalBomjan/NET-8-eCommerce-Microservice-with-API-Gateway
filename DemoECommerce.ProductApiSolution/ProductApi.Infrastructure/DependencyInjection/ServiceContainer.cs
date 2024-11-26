@@ -13,7 +13,7 @@ namespace ProductApi.Infrastructure.DependencyInjection
         {
             //Adding databse connectivity
             //Addinmg authentication scheme
-            SharedServicesContainer.AddSharedServices<ProductDbContext>(services, config, config["MySerilog:FineName"]!);
+            SharedServicesContainer.AddSharedServices<ProductDbContext>(services, config, config["MySerilog:FileName"]!);
 
             //Create Dependency injection ((DI)
             services.AddScoped<IProduct, ProductRepository>();

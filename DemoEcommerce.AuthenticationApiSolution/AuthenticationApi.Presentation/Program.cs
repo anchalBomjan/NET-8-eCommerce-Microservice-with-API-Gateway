@@ -10,13 +10,11 @@ builder.Services.AddInfrastructureService(builder.Configuration);
 
 var app = builder.Build();
 app.UserInterfaceInfrastructurePolicy();
+
     app.UseSwagger();
     app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
